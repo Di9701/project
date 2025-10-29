@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <style>
+        body { font-family: Arial; background: #f0f8ff; text-align: center; }
+        a { color: #0066cc; margin: 10px; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <h1>Добро пожаловать на сайт!</h1>
+    <p>Это главная страница моего Django-проекта.</p>
+    <a href="{% url 'products' %}">Перейти к продуктам</a>
+</body>
+</html>
