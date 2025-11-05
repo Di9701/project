@@ -1,19 +1,99 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Login</title>
-    <style>
-        body { font-family: Arial; background-color: #f2f2f2; text-align: center; }
-        .container { margin-top: 100px; }
-        a { color: #007bff; text-decoration: none; }
-    </style>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Store - Авторизация</title>
+
+    <!-- ✅ Подключение CSS через Django static -->
+    <link href="{% static 'vendor/css/auth.css' %}" rel="stylesheet"/>
+
+    <!-- FontAwesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
+            crossorigin="anonymous"></script>
 </head>
-<body>
-<div class="container">
-    <h1>Login Page</h1>
-    <p>Welcome back! Please log in.</p>
-    <a href="{% url 'index' %}">Home</a> |
-    <a href="{% url 'products' %}">Products</a>
+
+<body class="bg-primary">
+<div id="layoutAuthentication">
+    <div id="layoutAuthentication_content">
+        <main>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5">
+
+                        <!-- Пример уведомления -->
+                        <!-- Удали, если не нужно -->
+                        <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
+                            <strong>Внимание!</strong> Проверьте правильность введённых данных.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="card shadow-lg border-0 rounded-lg mt-4">
+                            <div class="card-header text-center">
+                                <h3 class="font-weight-light my-3">Авторизация</h3>
+                            </div>
+
+                            <div class="card-body">
+                                <form method="post" action="">
+                                    {% csrf_token %}
+                                    <div class="form-group mb-3">
+                                        <label class="small mb-1" for="inputUsername">Имя пользователя</label>
+                                        <input class="form-control py-3" id="inputUsername" name="username" type="text"
+                                               placeholder="Введите имя пользователя" required/>
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label class="small mb-1" for="inputPassword">Пароль</label>
+                                        <input class="form-control py-3" id="inputPassword" name="password" type="password"
+                                               placeholder="Введите пароль" required/>
+                                    </div>
+
+                                    <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                        <a class="small" href="#">Забыли пароль?</a>
+                                        <button class="btn btn-primary" type="submit">Авторизоваться</button>
+                                    </div>
+
+                                    <!-- Соцсети -->
+                                    <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                        <a href="#"><i class="fab fa-google fa-2x" style="color: #d9503e;"></i></a>
+                                        <a href="#"><i class="fab fa-vk fa-2x" style="color: #4a658b;"></i></a>
+                                        <a href="#"><i class="fab fa-github fa-2x" style="color: #303030;"></i></a>
+                                        <a href="#"><i class="fab fa-facebook fa-2x" style="color: #405794;"></i></a>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="card-footer text-center">
+                                <div class="small">
+                                    <a href="{% url 'register' %}">Нужен аккаунт? Зарегистрируйтесь!</a>
+                                </div>
+                                <div class="small mt-2">
+                                    <a href="{% url 'index' %}">На главную страницу</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
 </div>
+
+<!-- JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+
+<!-- ✅ подключаем JS через static -->
+<script src="{% static 'vendor/js/auth-admin.js' %}"></script>
+
 </body>
 </html>
+
