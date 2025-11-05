@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <style>
+        body { font-family: Arial; background-color: #e8ffe8; text-align: center; }
+        .container { margin-top: 100px; }
+        a { color: #007bff; text-decoration: none; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>User Profile</h1>
+    <p>Welcome to your profile page!</p>
+    <a href="{% url 'index' %}">Home</a> |
+    <a href="{% url 'products' %}">Products</a>
+</div>
+</body>
+</html>
